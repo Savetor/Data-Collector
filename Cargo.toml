@@ -1,0 +1,29 @@
+[package]
+name = "dashboard"
+version = "0.4.0"
+edition = "2021"
+
+[features]
+web = ["chrono/wasmbind", "eframe/persistence"]
+
+[dependencies]
+rand = "0.8"
+dirs = "4"
+git-version = "0.3.5"
+chrono = "0.4"
+tracing = "0.1"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+csv = "1.1"
+jql = { version = "4", default-features = false }
+eframe = "0.19"
+futures = "0.3"
+reqwest = { version = "0.11", features = ["json"] }
+sea-orm = { version = "0.10", features = [ "runtime-tokio-rustls", "sqlx-sqlite", "sqlx-postgres", "macros" ] }
+clap = { version = "4", features = ["derive"] }
+tokio = { version = "1", features = ["full"] }
+tracing-subscriber = "0.3"
+ctrlc = "3.2.3"
+
+[profile.dev.package."*"]
+opt-level = 3
